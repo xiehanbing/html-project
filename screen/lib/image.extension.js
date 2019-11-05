@@ -39,6 +39,8 @@
   $.downloadLocalImage = download;
   //全局下载本地图片方法
   $.downloadNetImage = downloadNetImage;
+
+  $.downloadLocalBlobImage = downloadLocalBlobImage;
   /**
    * 下载生成的图片
    * @param {string} name 图片名称
@@ -51,7 +53,27 @@
     a.href = url;
     a.dispatchEvent(event);
   }
-
+  /**
+   * downloadBlob 下载 blob 数据
+   * @param {string} name 名称
+   * @param {Blob} blob 数据
+   */
+  function downloadBlob(name, blob) {
+    var a = document.createElement("a");
+    // var event = new MouseEvent("click");
+    // a.download = name;
+    a.download = name + ".png";
+    a.innerHTML = "download";
+    a.href = URL.createObjectURL(blob);
+    a.click();
+    //a.dispatchEvent(event);
+    a.onclick = function() {
+      requestAnimationFrame(function() {
+        URL.revokeObjectURL(a.href);
+      });
+      a.removeAttribute("href");
+    };
+  }
   /**
    * 根据 在线url 下载图片
    * @param {string} url 图片网络地址
@@ -75,5 +97,17 @@
         frame.remove();
       }, removeDelay);
     }, triggerDelay);
+  }
+  function downloadLocalBlobImage(name, url) {
+    dataURIToBlob(name, url, downloadBlob);
+  }
+  function dataURIToBlob(name, dataUrl, callback) {
+    var binStr = atob(dataUrl.split(",")[1]),
+      len = binStr.length,
+      arr = new Uint8Array(len);
+    for (var i = 0; i < len; i++) {
+      arr[i] = binStr.charCodeAt(i);
+    }
+    callback(name, new Blob([arr]));
   }
 })(jQuery);
