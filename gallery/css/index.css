@@ -1,0 +1,29 @@
+body,
+html {
+    width: 100%;
+}
+
+.app {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.image-div {
+    width: 20%;
+    height: auto;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.image-div>img {
+    width: 100%;
+    height: auto;
+}
+
+.clear {
+    clear: both;
+}

@@ -1,0 +1,28 @@
+/****************************************************************
+ *																*		
+ * 						      ä»£ç åº“							*
+ *                        www.dmaku.com							*
+ *       		  åŠªåŠ›åˆ›å»ºå®Œå–„ã€æŒç»­æ›´æ–°æ’ä»¶ä»¥åŠæ¨¡æ¿			*
+ * 																*
+****************************************************************/
+body {
+    background: #ECEFF1;
+    text-align: center;
+}
+
+a {
+    color: inherit;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    color: #F44336;
+    margin: 0;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-right: 15%;
+}
+
+h1 {
+    font-size: 3em;
+}
